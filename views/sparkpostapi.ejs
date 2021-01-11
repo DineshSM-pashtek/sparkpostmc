@@ -292,7 +292,7 @@
      class HearsayPage1 extends React.Component {
         constructor(props) {
           super(props);
-		  
+          debugger;
           this.state = {
             groupname: '',
             namex: '',
@@ -392,13 +392,14 @@
 
 
         handleChangeBack(event){
+          debugger;
           let ipage = this.state.page - 1;
 		  if(ipage<=0){ipage=1;}
           this.setState({page: ipage});
         }
 
         handleChangeNext(event) {
-          
+          debugger;
           if(this.state.page==3){
              
           }
