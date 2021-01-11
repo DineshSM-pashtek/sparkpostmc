@@ -443,29 +443,23 @@
               //reset all values
               this.setState({groupname: ''});
               this.setState({namex: ''});
-			  this.setState({useridx: ''});
-			  
-			  this.setState({btn1data: ''});
-			  this.setState({btn2data: ''});
-			  this.setState({btn3data: ''});
-			  this.setState({btn4data: ''});
-			  this.setState({btn5data: ''});
-			  this.setState({btn6data: ''});
-		
-		    }
+              this.setState({useridx: ''});
+              
+              this.setState({btn1data: ''});
+              this.setState({btn2data: ''});
+              this.setState({btn3data: ''});
+              this.setState({btn4data: ''});
+              this.setState({btn5data: ''});
+              this.setState({btn6data: ''});
+            }
             this.setState({page: ipage});
           }
         }
-
-
-		
 
         myChangeHandler = (event) => {
           let nam = event.target.name;
           let val = event.target.value;
 
-          //alert(nam + '--' + val);
-          //alert(this.state.temp5 + '--name: ' + nam + 'value-> ' + val);
           this.setState({[nam]: val});
 
           if(nam=="groupname"){
@@ -477,7 +471,6 @@
           if(nam=="namex"){
             ReactDOM.render(<p></p>, document.getElementById('valMsgnamex'));
           }		  
-
        }
 
         redirectFromWizardSteps(event){
@@ -495,16 +488,14 @@
           if(RedirectingPageNo<=CurrentPageNo){
             this.setState({page:RedirectingPageNo});
           }
-          
         }
-
 
         render() {
           if(this.state.page==1) {
             return (
               <div>
                   
-				{wizardNavigationNew(1, this.redirectFromWizardSteps)}
+				        {wizardNavigationNew(1, this.redirectFromWizardSteps)}
                 {AddLogorow()}
                 <div class='e1container'>
                     <div class="row epaddingbottom10">
@@ -517,28 +508,28 @@
                     </div>
                   
                     <hr class='e1linecolor'/>
-					<div class="row">
+					          <div class="row">
                         <div class="col-md-11 elRowPg1">
                             <label class='e1labelheaderPage1'>Sparkpost SSO Dashboard Access </label>
                         </div>
                         <div class="col-md-1"></div>
                     </div> 
 					
-					<div class="row epaddingbottom10">
-                        <div class="col-md-5 elRowPg1">
-                            <label class='e1labelheaderPage1 e1margintop10'>Name</label>
-                            <input name='namex' value={this.state.namex} placeholder='Enter Name' class='e1inputpg1' maxlength='40' onChange={this.myChangeHandler} />
-                            <span id="valMsgnamex"></span>
-                        </div>
-                        <div class="col-md-5 elRowPg1">
-                            <label class='e1labelheaderPage1 e1margintop10'>User ID</label>
-                            <input name='useridx' value={this.state.useridx} placeholder='Enter User ID' class='e1inputpg1' maxlength='40' onChange={this.myChangeHandler} />
-			    <iframe width="100%" height="350" src="//maps.google.com/?q=40.5509,-105.0668&output=svembed" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                            <span id="valMsguseridx"></span>
-                        </div>						
-                        <div class="col-md-2"></div>
+					          <div class="row epaddingbottom10">
+                      <div class="col-md-5 elRowPg1">
+                          <label class='e1labelheaderPage1 e1margintop10'>Name</label>
+                          <input name='namex' value={this.state.namex} placeholder='Enter Name' class='e1inputpg1' maxlength='40' onChange={this.myChangeHandler} />
+                          <span id="valMsgnamex"></span>
+                      </div>
+                      <div class="col-md-5 elRowPg1">
+                          <label class='e1labelheaderPage1 e1margintop10'>User ID</label>
+                          <input name='useridx' value={this.state.useridx} placeholder='Enter User ID' class='e1inputpg1' maxlength='40' onChange={this.myChangeHandler} />
+                          <iframe width="100%" height="350" src="//maps.google.com/?q=40.5509,-105.0668&output=svembed" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                          <span id="valMsguseridx"></span>
+                      </div>						
+                      <div class="col-md-2"></div>
                     </div>
-					<div class="row epaddingbottom10">
+					          <div class="row epaddingbottom10">
                         <div class="col-md-5 elRowPg1">
                         </div>
                         <div class="col-md-5 elRowPg1">
@@ -560,19 +551,18 @@
                 {wizardNavigationNew(2, this.redirectFromWizardSteps)}
                 {AddLogorow()}
                 <div class='e1container'>
-                    <div class="row epaddingbottom10">
-                        <div class="col-md-11 elRowPg1">
-                            <label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>
-                        </div>
-                        <div class="col-md-1"></div>
+                  <div class="row epaddingbottom10">
+                      <div class="col-md-11 elRowPg1">
+                          <label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>
+                      </div>
+                      <div class="col-md-1"></div>
+                  </div>
+                <div class="row">
+                    <div class="col-md-11 elRowPg1">
+                        <label class='e1labelheaderPage1'>Thresholds </label>
                     </div>
-					<div class="row">
-					
-                        <div class="col-md-11 elRowPg1">
-                            <label class='e1labelheaderPage1'>Thresholds </label>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div> 
+                    <div class="col-md-1"></div>
+                </div> 
 					<div class="row epaddingbottom10  paddingleft60">
 							<div class='displaystyle1 col-md-6'>
 								<div class="row">
