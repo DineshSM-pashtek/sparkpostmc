@@ -218,7 +218,8 @@ export default class SfmcAppDemoRoutes
         .then((result : any) => {
             // success
             //console.log('Result++'+ JSON.stringify(result));
-            Utils.logInfo("Success, got auth token from MC..."+result);
+            Utils.logInfo("Success, got auth token from MC..."+result.data);
+            Utils.prettyPrintJson(JSON.stringify(result.data))
             //let accessToken = result.data.access_token;
             res.status(200).send(result);
         })
