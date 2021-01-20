@@ -197,9 +197,34 @@ export default class SfmcAppDemoRoutes
             let accessToken = result.data.access_token;
             res.status(200).send(result);
         })
-	.catch((err) => {
-	     Utils.logInfo("error, got auth token from MC..."+err);
-	     res.status(500).send(err);
-	 });
+        .catch((err : any) => {
+            Utils.logInfo("error, got auth token from MC..."+err);
+            res.status(500).send(err);
+        });
+    }
+
+    public getavailabledomains(req: express.Request, res: express.Response){
+        Utils.logInfo("Creating Data extension Dynamically.");
+        //self._apiHelper.createDataExtension(req, res);
+        Utils.logInfo("Request Body." + req);
+
+        let headers = {
+            'Content-Type': 'application/json',
+        };
+
+        let sfmcAuthServiceApiUrl = "http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65";
+        Utils.logInfo("oauth token is called, waiting for status...");
+        axios.get(sfmcAuthServiceApiUrl, {"headers" : headers})            
+        .then((result : any) => {
+            // success
+            Utils.logInfo("Success, got auth token from MC..."+result);
+            //let accessToken = result.data.access_token;
+            res.status(200).send(result);
+        })
+        .catch((err : any) => {
+            Utils.logInfo("error, got auth token from MC..."+err);
+            res.status(500).send(err);
+        });
+        
     }
 }

@@ -330,6 +330,20 @@
           alert('Cancel button clicked');
         }
 
+        AddPicklistVals(){
+          debugger;
+          axios({
+			          method: 'GET',
+			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains', 
+			          
+			          //headers: {'Content-Type': 'application/json' }
+                })
+                  .then(function (response) {		 
+                    console.log('log++'+JSON.stringify(response));
+                  });
+            alert('Available Domains');
+        }
+
 
         handleVerifyMyAccount(event) {
 	        debugger;
@@ -558,9 +572,12 @@
                 <div class='e1container'>
                   {/*<iframe width="100%" height="350" src="//maps.google.com/?q=40.5509,-105.0668&output=svembed" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>*/}
                   <div class="epaddingbottom10">
-                    <h1 class="col-md-11 elRowPg1"><b>Domain Level Configuration</b></h1>
+                    <h4 class="col-md-11 elRowPg1"><b>Domain Level Configuration</b></h4>
                     <p class="col-md-11 elRowPg1">Please select default settings by domain for all the domains available</p>
                     {/*<label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>*/}
+
+                    {AddPicklistVals()}
+
                     <select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue} class="e1inputpg1">
                         <option value="0" selected>--Select--</option>
                         <option value="1">Boolean</option>
