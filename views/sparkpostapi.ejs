@@ -557,8 +557,11 @@
                 {AddLogorow()}
                 <div class='e1container'>
                   {/*<iframe width="100%" height="350" src="//maps.google.com/?q=40.5509,-105.0668&output=svembed" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>*/}
-                  <div class="col-md-2">
-                    <select disabled="false" class="e1inputddsmall" name="Test" value="" onChange={this.onChangeValue}>
+                  <div class="row epaddingbottom10">
+                    <h1><b>Domain Level Configuration</b></h1>
+                    <p>Please select default settings by domain for all the domains available</p>
+                    {/*<label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>*/}
+                    <select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
                         <option value="1">Boolean</option>
                         <option value="2">Date</option>
@@ -586,11 +589,11 @@
                       <div class='displaystyle1 col-md-6'>
                         <div class="row">
                           <div class=' col-md-3'>
-                            <div class=""><label class='e1labelheaderPage4'>Inbox > ""</label></div>
+                            <div class=""><label class='e1labelheaderPage4'>Inbox </label></div>
                             <div class=""><a name='btn1data' onClick={this.handleThresholdRulesButtons('btn1data')}><img class='thresbtns' src='/images/btn1.jpg'/></a></div>
                           </div>
                           <div class=' col-md-3'>
-                            <div class=""><label class='e1labelheaderPage4'>Spam > ""</label></div>
+                            <div class=""><label class='e1labelheaderPage4'>Spam </label></div>
                             <div class=""><a name='btn2data' onClick={this.handleThresholdRulesButtons('btn2data')}><img class='thresbtns' src='/images/btn2.jpg'/></a></div>
                           </div>
                           <div class=' col-md-3'>
