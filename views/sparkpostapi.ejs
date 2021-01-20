@@ -300,7 +300,10 @@
                 })
                   .then(function (response) {		 
                     console.log('log++'+JSON.stringify(response));
-                  });
+                  })
+                  .catch(function(error){
+                    console.log('error++'+JSON.stringify(error));
+                  })
             alert('Available Domains');
         }
 

@@ -214,10 +214,11 @@ export default class SfmcAppDemoRoutes
 
         let sfmcAuthServiceApiUrl = "http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65";
         Utils.logInfo("oauth token is called, waiting for status...");
-        axios.get(sfmcAuthServiceApiUrl, {"headers" : headers})            
+        axios.get(sfmcAuthServiceApiUrl)            
         .then((result : any) => {
             // success
-            Utils.logInfo("Success, got auth token from MC..."+result);
+            console.log('Result++'+ JSON.stringify(result));
+            Utils.logInfo("Success, got auth token from MC..."+JSON.stringify(result));
             //let accessToken = result.data.access_token;
             res.status(200).send(result);
         })
