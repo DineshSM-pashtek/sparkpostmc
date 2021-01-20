@@ -217,8 +217,8 @@ export default class SfmcAppDemoRoutes
         axios.get(sfmcAuthServiceApiUrl)            
         .then((result : any) => {
             // success
-            console.log('Result++'+ JSON.stringify(result));
-            Utils.logInfo("Success, got auth token from MC..."+JSON.stringify(result));
+            //console.log('Result++'+ JSON.stringify(result));
+            Utils.logInfo("Success, got auth token from MC..."+result);
             //let accessToken = result.data.access_token;
             res.status(200).send(result);
         })
