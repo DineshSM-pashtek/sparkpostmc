@@ -290,6 +290,10 @@
           
         }
 
+        function MakeItem(X) {
+          return <option value={X}>{X}</option>;
+        };
+
         function AddPicklistVals(){
           debugger;
           axios({
@@ -299,6 +303,12 @@
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
+                    return (
+                      <select name="Test" value="" onChange={this.onChangeValue} class='e1inputdd col-md-11'>
+                        <option value="12">12</option>
+                        {arraylist.map(MakeItem)}
+                      </select>
+                    );
                   })
                   .catch(function(error){
                     console.log('error++'+error);
@@ -580,7 +590,7 @@
 
                     {AddPicklistVals()}
 
-                    <select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue} class="e1inputpg1">
+                    {/*<select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue} class="e1inputpg1">
                         <option value="0" selected>--Select--</option>
                         <option value="1">Boolean</option>
                         <option value="2">Date</option>
@@ -590,7 +600,7 @@
                         <option value="6">Number</option>
                         <option value="7">Phone</option>
                         <option value="8">Text</option>
-                    </select>
+                    </select>*/}
                   </div>
                   <div class="row epaddingbottom10">
                       <div class="col-md-11 elRowPg1">
