@@ -290,6 +290,20 @@
           
         }
 
+        function AddPicklistVals(){
+          debugger;
+          axios({
+			          method: 'GET',
+			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains', 
+			          
+			          //headers: {'Content-Type': 'application/json' }
+                })
+                  .then(function (response) {		 
+                    console.log('log++'+JSON.stringify(response));
+                  });
+            alert('Available Domains');
+        }
+
      class HearsayPage1 extends React.Component {
         constructor(props) {
           super(props);
@@ -328,20 +342,6 @@
 
         handleChangeCancel(event) {
           alert('Cancel button clicked');
-        }
-
-        AddPicklistVals(){
-          debugger;
-          axios({
-			          method: 'GET',
-			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains', 
-			          
-			          //headers: {'Content-Type': 'application/json' }
-                })
-                  .then(function (response) {		 
-                    console.log('log++'+JSON.stringify(response));
-                  });
-            alert('Available Domains');
         }
 
 
