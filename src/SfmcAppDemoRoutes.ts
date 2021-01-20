@@ -214,8 +214,23 @@ export default class SfmcAppDemoRoutes
 
         let sfmcAuthServiceApiUrl = "http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65";
         Utils.logInfo("oauth token is called, waiting for status...");
-        axios.get(sfmcAuthServiceApiUrl)            
-        .then((result : any) => {
+        axios.get(sfmcAuthServiceApiUrl)     
+
+        axios({
+				method: 'get',
+				url: 'http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65'
+			})
+
+         .then(function (response) {            
+            Utils.logInfo("Success, got auth token from MC..."+response.data);
+            Utils.prettyPrintJson(JSON.stringify(response.data))  ;
+            res.status(200).send(response);     
+            })         
+            .catch(function (err) {             
+                 Utils.logInfo("error, got auth token from MC..."+err);
+                res.status(500).send(err);       
+            });       
+        /*.then((result : any) => {
             // success
             //console.log('Result++'+ JSON.stringify(result));
             Utils.logInfo("Success, got auth token from MC..."+result.data);
@@ -226,7 +241,7 @@ export default class SfmcAppDemoRoutes
         .catch((err : any) => {
             Utils.logInfo("error, got auth token from MC..."+err);
             res.status(500).send(err);
-        });
+        });*/
         
     }
 }
