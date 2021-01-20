@@ -221,11 +221,11 @@ export default class SfmcAppDemoRoutes
 				url: 'http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65'
 			})
 
-         .then(function (response) {            
-            Utils.logInfo("Success, got auth token from MC..."+response.data);
-            Utils.prettyPrintJson(JSON.stringify(response.data))  ;
-            res.status(200).send(response);     
-            })         
+            .then(function (response) {            
+                Utils.logInfo("Success, got auth token from MC..."+response.data);
+                Utils.prettyPrintJson(JSON.stringify(response.data))  ;
+                res.status(200).send(JSON.stringify(response.data));     
+                })         
             .catch(function (err) {             
                  Utils.logInfo("error, got auth token from MC..."+err);
                 res.status(500).send(err);       
