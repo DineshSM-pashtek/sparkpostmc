@@ -204,44 +204,42 @@ export default class SfmcAppDemoRoutes
     }
 
     public getavailabledomains(req: express.Request, res: express.Response){
-        Utils.logInfo("Creating Data extension Dynamically.");
-        //self._apiHelper.createDataExtension(req, res);
-        Utils.logInfo("Request Body." + req);
-
-        let headers = {
-            'Content-Type': 'application/json',
-        };
-
         let sfmcAuthServiceApiUrl = "http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65";
         Utils.logInfo("oauth token is called, waiting for status...");
-        axios.get(sfmcAuthServiceApiUrl)     
+        //axios.get(sfmcAuthServiceApiUrl)     
 
         axios({
-				method: 'get',
-				url: 'http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65'
-			})
-
-            .then(function (response) {            
-                Utils.logInfo("Success, got auth token from MC..."+response.data);
-                Utils.prettyPrintJson(JSON.stringify(response.data))  ;
-                res.status(200).send(JSON.stringify(response.data));     
-                })         
-            .catch(function (err) {             
-                 Utils.logInfo("error, got auth token from MC..."+err);
-                res.status(500).send(err);       
-            });       
-        /*.then((result : any) => {
-            // success
-            //console.log('Result++'+ JSON.stringify(result));
-            Utils.logInfo("Success, got auth token from MC..."+result.data);
-            Utils.prettyPrintJson(JSON.stringify(result.data))
-            //let accessToken = result.data.access_token;
-            res.status(200).send(result);
+            method: 'get',
+            url: 'http://api.edatasource.com/v4/inbox/domains/available?Authorization=b9481863c2764a46ae81e054a8fc4f65'
         })
-        .catch((err : any) => {
-            Utils.logInfo("error, got auth token from MC..."+err);
-            res.status(500).send(err);
-        });*/
-        
+
+        .then(function (response) {            
+            Utils.logInfo("Success, got auth token from MC..."+response.data);
+            res.status(200).send(JSON.stringify(response.data));     
+            })         
+        .catch(function (err) {             
+                Utils.logInfo("error, got auth token from MC..."+err);
+            res.status(500).send(err);       
+        });       
+    }
+
+    public getdomaindeliverability(req: express.Request, res: express.Response){
+        let sfmcAuthServiceApiUrl = "http://api.edatasource.com/v4/inbox/deliverability/email.gap.com?qd=daysBack%3A30&Authorization=b9481863c2764a46ae81e054a8fc4f65";
+        Utils.logInfo("oauth token is called, waiting for status...");
+        //axios.get(sfmcAuthServiceApiUrl)     
+
+        axios({
+            method: 'get',
+            url: 'http://api.edatasource.com/v4/inbox/deliverability/email.gap.com?qd=daysBack%3A30&Authorization=b9481863c2764a46ae81e054a8fc4f65'
+        })
+
+        .then(function (response) {            
+            Utils.logInfo("Success, got auth token from MC..."+response.data);
+            res.status(200).send(JSON.stringify(response.data));     
+            })         
+        .catch(function (err) {             
+                Utils.logInfo("error, got auth token from MC..."+err);
+            res.status(500).send(err);       
+        });       
     }
 }

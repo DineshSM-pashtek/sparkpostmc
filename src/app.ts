@@ -100,6 +100,11 @@ app.post('/createdeforapp', function(req, res) {
   app.get('/getavailabledomains', function(req, res) {
   appDemoRoutes.getavailabledomains(req, res); });
 
+  app.get('/getdomaindeliverability', function(req, res) {
+  appDemoRoutes.getdomaindeliverability(req, res); });
+
+  
+
 
 
 // Marketing Cloud POSTs the JWT to the '/login' endpoint when a user logs in

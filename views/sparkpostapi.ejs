@@ -294,7 +294,7 @@
           return <option value={X}>{X}</option>;
         };
 
-        function AddPicklistVals(){
+        function AddPicklistVals(handler){
           debugger;
           axios({
 			          method: 'GET',
@@ -304,9 +304,9 @@
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
                     return (
-                      <select name="Test" value="" onChange={this.onChangeValue} class='e1inputdd col-md-11'>
+                      <select name="Test" value="" onChange={handler} class='e1inputdd col-md-11'>
                         <option value="12">12</option>
-                        {arraylist.map(MakeItem)}
+                        {response.data.map(MakeItem)}
                       </select>
                     );
                   })
@@ -378,10 +378,10 @@
 			          url: 'https://sparkpost-mc.herokuapp.com/sparkpostverify', 
 			          
 			          //headers: {'Content-Type': 'application/json' }
-                })
-                  .then(function (response) {		 
-                    console.log('log++'+JSON.stringify(response));
-                  });
+            })
+            .then(function (response) {		 
+              console.log('log++'+JSON.stringify(response));
+            });
             alert('Verify My Account button clicked');
         }
 
@@ -519,6 +519,18 @@
 
         onChangeValue(event){
           debugger;
+
+          axios({
+			          method: 'POST',
+			          url: 'https://sparkpost-mc.herokuapp.com/getdomaindeliverability', 
+			          
+			          //headers: {'Content-Type': 'application/json' }
+            })
+            .then(function (response) {		 
+              console.log('log++'+JSON.stringify(response));
+            });
+            alert('Verify My Account button clicked');
+
         }
 
         render() {
@@ -588,7 +600,7 @@
                     <p class="col-md-11 elRowPg1">Please select default settings by domain for all the domains available</p>
                     {/*<label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>*/}
 
-                    {AddPicklistVals()}
+                    {AddPicklistVals(this.onChangeValue)}
 
                     <select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue} class="e1inputpg1">
                         <option value="0" selected>--Select--</option>
