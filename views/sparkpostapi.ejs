@@ -296,25 +296,25 @@
 
         function AddPicklistVals(handler){
           debugger;
-          axios({
+          /*axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
                 })
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
-                    /*return (
+                    return (
                       <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
-                    );*/
+                    );
                     this.setState({
                       apiData: response.data
                     });
                   })
                   .catch(function(error){
                     console.log('error++'+error);
-                  })
+                  })*/
             alert('Available Domains');
         }
 
@@ -334,7 +334,7 @@
             btn5data:'',
             btn6data:'',
             page:1,
-            apiData : []
+            apiData : [{"accountId":8738,"domainId":326658,"domain":"email.gap.com"},{"accountId":8738,"domainId":8880690,"domain":"boxbe.com"},{"accountId":8738,"domainId":32583989,"domain":"email.gapfactory.com"}]
           };
 
             
@@ -353,25 +353,21 @@
         componentDidMount() {
           if(this.state.page ==1){
             debugger;
-            axios({
+            /*axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
             })
             .then(function (response) {		 
               console.log('log++'+response);
               console.log('JSON++'+ JSON.stringify(response));
-              /*return (
-                <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
-                  {response.data.map(MakeItem)}
-                </select>
-              );*/
+              
               this.setState({
                 apiData: response.data
               });
             })
             .catch(function(error){
               console.log('error++'+error);
-            })
+            })*/
           }
         };
 
