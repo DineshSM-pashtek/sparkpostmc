@@ -296,6 +296,11 @@
 
         function AddPicklistVals(handler){
           debugger;
+          return (
+            <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
+              {this.setState.apiData.map(MakeItem)}
+            </select>
+          );
           /*axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
