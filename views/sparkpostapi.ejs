@@ -308,6 +308,9 @@
                         {response.data.map(MakeItem)}
                       </select>
                     );
+                    this.setState({
+                      apiData: response.data
+                    });
                   })
                   .catch(function(error){
                     console.log('error++'+error);
@@ -600,11 +603,14 @@
                     {/*<label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>*/}
 
                     {AddPicklistVals(this.onChangeValue)}
-
-                    {/*<select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
+                    
+                    <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
-                        <option value="1">email.gap.com</option>
-                    </select>*/}
+                        {apiData.map(api => {
+                           return <option value={api.domain}>{api.domain}</option>;
+                        })}
+                        
+                    </select>
                   </div>
                   <div class="row epaddingbottom10">
                       <div class="col-md-11 elRowPg1">
