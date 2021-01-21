@@ -327,15 +327,15 @@
             namex: '',
             useridx:'',
 			
-			btn1data:'',
-			btn2data:'',
-			btn3data:'',
-			btn4data:'',
-			btn5data:'',
-			btn6data:'',
-
+            btn1data:'',
+            btn2data:'',
+            btn3data:'',
+            btn4data:'',
+            btn5data:'',
+            btn6data:'',
             page:1,
-            };
+            apiData : []
+          };
 
             
           this.handleChangeBack = this.handleChangeBack.bind(this);  
@@ -351,8 +351,29 @@
         }
 
         componentDidMount() {
-
-        }
+          if(this.state.page ==2){
+            debugger;
+            axios({
+			          method: 'GET',
+			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
+            })
+            .then(function (response) {		 
+              console.log('log++'+response);
+              console.log('JSON++'+ JSON.stringify(response));
+              return (
+                <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
+                  {response.data.map(MakeItem)}
+                </select>
+              );
+              this.setState({
+                apiData: response.data
+              });
+            })
+            .catch(function(error){
+              console.log('error++'+error);
+            })
+          }
+        };
 
         handleChangeCancel(event) {
           alert('Cancel button clicked');
@@ -607,7 +628,7 @@
                     <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
                         {this.state.apiData.map(api => {
-                           return <option value={api.domain}>{api.domain}</option>;
+                           <option value={api.domain}>{api.domain}</option>;
                         })}
                         
                     </select>
