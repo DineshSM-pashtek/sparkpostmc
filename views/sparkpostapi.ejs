@@ -304,8 +304,7 @@
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
                     return (
-                      <select name="Test" value="" onChange={handler} class='e1inputdd col-md-11'>
-                        <option value="12">12</option>
+                      <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
                     );
@@ -602,10 +601,10 @@
 
                     {AddPicklistVals(this.onChangeValue)}
 
-                    <select class="col-md-11 elRowPg1" name="Test" value="" onChange={this.onChangeValue} class="e1inputpg1">
+                    {/*<select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
                         <option value="1">email.gap.com</option>
-                    </select>
+                    </select>*/}
                   </div>
                   <div class="row epaddingbottom10">
                       <div class="col-md-11 elRowPg1">
