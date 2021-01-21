@@ -303,11 +303,11 @@
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
-                    return (
+                    /*return (
                       <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
-                    );
+                    );*/
                     this.setState({
                       apiData: response.data
                     });
@@ -351,7 +351,7 @@
         }
 
         componentDidMount() {
-          if(this.state.page ==2){
+          if(this.state.page ==1){
             debugger;
             axios({
 			          method: 'GET',
@@ -360,11 +360,11 @@
             .then(function (response) {		 
               console.log('log++'+response);
               console.log('JSON++'+ JSON.stringify(response));
-              return (
+              /*return (
                 <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                   {response.data.map(MakeItem)}
                 </select>
-              );
+              );*/
               this.setState({
                 apiData: response.data
               });
