@@ -298,7 +298,9 @@
           debugger;
           return (
             <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
-              {this.state.apiData.map(MakeItem)}
+              <option value="email.gap.com">email.gap.com</option>
+              <option value="boxbe.com">boxbe.com</option>
+              <option value="email.gapfactory.com">email.gapfactory.com</option>
             </select>
           );
           /*axios({
