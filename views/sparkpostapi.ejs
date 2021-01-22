@@ -296,32 +296,32 @@
 
         function AddPicklistVals(handler){
           debugger;
-          return (
+          /*return (
             <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
               <option value="email.gap.com">email.gap.com</option>
               <option value="boxbe.com">boxbe.com</option>
               <option value="email.gapfactory.com">email.gapfactory.com</option>
             </select>
-          );
-          /*axios({
+          );*/
+          axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
                 })
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
-                    return (
+                    /*return (
                       <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
-                    );
+                    );*/
                     this.setState({
-                      apiData: response.data
+                      loadPage2: true
                     });
                   })
                   .catch(function(error){
                     console.log('error++'+error);
-                  })*/
+                  })
             alert('Available Domains');
         }
 
@@ -341,7 +341,8 @@
             btn5data:'',
             btn6data:'',
             page:1,
-            apiData : [{"accountId":8738,"domainId":326658,"domain":"email.gap.com"},{"accountId":8738,"domainId":8880690,"domain":"boxbe.com"},{"accountId":8738,"domainId":32583989,"domain":"email.gapfactory.com"}]
+            apiData : [{"accountId":8738,"domainId":326658,"domain":"email.gap.com"},{"accountId":8738,"domainId":8880690,"domain":"boxbe.com"},{"accountId":8738,"domainId":32583989,"domain":"email.gapfactory.com"}],
+            loadPage2 : false
           };
 
             
@@ -614,7 +615,7 @@
               </div>
             )
           }
-          else if(this.state.page==2) {
+          else if(this.state.page==2 && this.state.loadPage2 == true) {
             return (
               <div>
                 {wizardNavigationNew(2, this.redirectFromWizardSteps)}
