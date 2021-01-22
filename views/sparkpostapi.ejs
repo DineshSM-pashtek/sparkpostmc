@@ -538,6 +538,7 @@
             }			
 
             if(ValidationStatus == true){
+              const thisdata = this;
               axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
@@ -546,11 +547,11 @@
                   console.log('log++'+response);
                   console.log('JSON++'+ JSON.stringify(response));
                   
-                  this.setState({
+                  thisdata.setState({
                     data: response.data
                   });
 
-                  this.setState({
+                  thisdata.setState({
                     loadPage2: true
                   });
                   /*return (
