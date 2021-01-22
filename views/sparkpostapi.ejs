@@ -361,24 +361,25 @@
         componentDidUpdate (prevProps,prevState){
           if (this.state.page !== prevState.page) {
               console.log('userId changed ');
-          }
-          if(this.state.page ==2){
-            debugger;
-            axios({
-			          method: 'GET',
-			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
-            })
-            .then(function (response) {		 
-              console.log('log++'+response);
-              console.log('JSON++'+ JSON.stringify(response));
-              
-              this.setState({
-                apidata: response.data
-              });
-            })
-            .catch(function(error){
-              console.log('error++'+error);
-            })
+          
+            if(this.state.page ==2){
+              debugger;
+              axios({
+                  method: 'GET',
+                  url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
+              })
+              .then(function (response) {		 
+                console.log('log++'+response);
+                console.log('JSON++'+ JSON.stringify(response));
+                
+                this.setState({
+                  apidata: response.data
+                });
+              })
+              .catch(function(error){
+                console.log('error++'+error);
+              })
+            }
           }
         }
 
