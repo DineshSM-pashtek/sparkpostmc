@@ -569,6 +569,7 @@
             )
           }
           else if(this.state.page==2 && this.state.data != null) {
+            console.log('rendered++'+this.state.data);
             return (
               <div>
                 {wizardNavigationNew(2, this.redirectFromWizardSteps)}
