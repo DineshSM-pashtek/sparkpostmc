@@ -290,13 +290,6 @@
           
         }
 
-        function MakeItem(X) {
-          return <option value={X.domain}>{X.domain}</option>;
-        };
-
-        function AddPicklistVals(handler){
-          
-        }
 
      class HearsayPage1 extends React.Component {
         constructor(props) {
@@ -332,10 +325,6 @@
 		  
         }
 
-        componentDidUpdate (prevProps,prevState){
-         
-        }
-
         componentDidMount() {
           
         }
@@ -348,20 +337,6 @@
 
         handleVerifyMyAccount(event) {
 	        debugger;
-          /*let _data = {
-              title: "foo",
-              body: "bar", 
-              userId:1
-            }
-
-            fetch('/sparkpost/verify/', {
-              method: "POST",
-              body: JSON.stringify(_data),
-              headers: {"Content-type": "application/json; charset=UTF-8"}
-            })
-            .then(response => response.json()) 
-            .then(json => console.log(json))
-            .catch(err => console.log(err));*/
             axios({
 			          method: 'POST',
 			          url: 'https://sparkpost-mc.herokuapp.com/sparkpostverify', 
@@ -401,12 +376,6 @@
 			
 		};
 	
-
-
-        
-
-
-
         handleChangeBack(event){
           debugger;
           let ipage = this.state.page - 1;
@@ -419,8 +388,6 @@
           if(this.state.page==3){
              
           }
-
-          //Validation
            
           var ValidationStatus=true;
           var validateMessages=[];
