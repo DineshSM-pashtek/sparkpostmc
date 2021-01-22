@@ -537,10 +537,38 @@
               ReactDOM.render(<p></p>, document.getElementById('valMsguseridx'));
             }			
 
+            if(ValidationStatus == true){
+              axios({
+			          method: 'GET',
+			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
+                })
+                .then(function (response) {		 
+                  console.log('log++'+response);
+                  console.log('JSON++'+ JSON.stringify(response));
+                  
+                  this.setState({
+                    data: response.data
+                  });
+
+                  this.setState({
+                    loadPage2: true
+                  });
+                  /*return (
+                    <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
+                      {response.data.map(MakeItem)}
+                    </select>
+                  );*/
+                  
+                })
+                .catch(function(error){
+                  console.log('error++'+error);
+                })
+            }
 			
           } 
 		  
           if(ValidationStatus==true){
+
             let ipage = this.state.page + 1;
             if(ipage==4){
               //reset to first page
@@ -666,7 +694,7 @@
               </div>
             )
           }
-          else if(this.state.page==2 && this.state.loadPage2 == true) {
+          else if(this.state.page==2 && this.state.data != null) {
             //&& this.state.loadPage2 == true
             return (
               <div>
@@ -679,7 +707,7 @@
                     <p class="col-md-11 elRowPg1">Please select default settings by domain for all the domains available</p>
                     {/*<label class='e1labelheaderPage1 e1margintop10'>MY COMPANY <span class='inboxtracker'>Inbox Tracker</span></label>*/}
 
-                    {AddPicklistVals(this.onChangeValue)}
+                    {/*{AddPicklistVals(this.onChangeValue)}*/}
                     
                     <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
