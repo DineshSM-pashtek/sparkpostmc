@@ -584,7 +584,7 @@
                     <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={this.onChangeValue}>
                         <option value="0" selected>--Select--</option>
                         {this.state.data && this.state.data.map(api => { 
-                            <option value={api.domain}>{api.domain}</option>;
+                            return (<option value={api.domain}>{api.domain}</option>);
                           })
                         }
                         
