@@ -296,7 +296,7 @@
 
         function AddPicklistVals(handler){
           debugger;
-          const data = this;
+          const thisdata = this;
           /*return (
             <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
               <option value="email.gap.com">email.gap.com</option>
@@ -312,11 +312,11 @@
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
                     
-                    data.setState({
+                    thisdata.setState({
                       data: response.data
                     });
 
-                    data.setState({
+                    thisdata.setState({
                       loadPage2: true
                     });
                     /*return (
