@@ -296,6 +296,7 @@
 
         function AddPicklistVals(handler){
           debugger;
+          const data = this;
           /*return (
             <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
               <option value="email.gap.com">email.gap.com</option>
@@ -310,14 +311,20 @@
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
+                    
+                    data.setState({
+                      data: response.data
+                    });
+
+                    data.setState({
+                      loadPage2: true
+                    });
                     /*return (
                       <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
                     );*/
-                    this.setState({
-                      loadPage2: true
-                    });
+                    
                   })
                   .catch(function(error){
                     console.log('error++'+error);
@@ -342,7 +349,7 @@
             btn6data:'',
             page:1,
             apidata : null,
-            loadPage2 : false,
+            loadPage2 : true,
             data : null
           };
 
@@ -659,7 +666,7 @@
               </div>
             )
           }
-          else if(this.state.page==2 && this.state.apidata != null) {
+          else if(this.state.page==2 && this.state.loadPage2 == true) {
             //&& this.state.loadPage2 == true
             return (
               <div>
