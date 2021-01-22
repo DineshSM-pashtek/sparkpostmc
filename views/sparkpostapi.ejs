@@ -303,25 +303,25 @@
               <option value="email.gapfactory.com">email.gapfactory.com</option>
             </select>
           );*/
-          /*axios({
+          axios({
 			          method: 'GET',
 			          url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
                 })
                   .then(function (response) {		 
                     console.log('log++'+response);
                     console.log('JSON++'+ JSON.stringify(response));
-                    return (
+                    /*return (
                       <select class="col-md-11 elRowPg1 e1inputpg1" name="Test" value="" onChange={handler}>
                         {response.data.map(MakeItem)}
                       </select>
-                    );
+                    );*/
                     this.setState({
                       loadPage2: true
                     });
                   })
                   .catch(function(error){
                     console.log('error++'+error);
-                  })*/
+                  })
             alert('Available Domains');
         }
 
@@ -360,7 +360,7 @@
         }
 
         componentDidUpdate (prevProps,prevState){
-          if (this.state.page !== prevState.page) {
+          /*if (this.state.page !== prevState.page) {
               console.log('userId changed ');
               debugger;
 
@@ -372,7 +372,7 @@
                           //...handle the error...
                       }
                   })();
-              }
+              }*/
           
             /*if(this.state.page ==2){
               
@@ -420,13 +420,13 @@
           alert('Cancel button clicked');
         }
 
-        async getData() {
+        /*async getData() {
             const res = await axios({
                   method: 'GET',
                   url: 'https://sparkpost-mc.herokuapp.com/getavailabledomains' 
               });
             return await res.data(); // (Or whatever)
-        }
+        }*/
 
 
         handleVerifyMyAccount(event) {
